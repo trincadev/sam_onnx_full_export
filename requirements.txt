@@ -1,0 +1,8 @@
+git+https://github.com/ChaoningZhang/MobileSAM.git
+huggingface_hub
+onnx
+python-dotenv
+segment-anything
+timm
+torch
+urllib

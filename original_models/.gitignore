@@ -160,5 +160,3 @@ cython_debug/
 .idea/
 *.onnx
 *.pt
-.DS_Store
-teglio_1280x960.jpg

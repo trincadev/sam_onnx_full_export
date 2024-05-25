@@ -10,3 +10,31 @@ This repo fills this gap, here you can find how to export both SAM image encoder
 * `sam_onnx_inference.ipynb` - Shows how to use exported models for image segmentation.
 
 Read the article for thorough explanation of this code.
+
+## Local execution
+
+1. create and install a virtual environment, dependencies installation
+
+    ```bash
+    python -m venv venv
+    source venv/bin/activate
+    pip install -r requirements.txt   
+    ```
+
+2. create your own `.env` file copying the `template.env` file, change the variables as needed
+3. export the encoder and decoder onnx models
+
+   ```bash
+   python sam_onnx_export.py
+   ```
+
+4. try an interference example
+
+   ```bash
+   python sam_onnx_inference.py
+   ```
+   
+5. if you want, you can download these onnx models from https://huggingface.co/aletrn/sam-quantized and use them in
+   an onnx project like https://huggingface.co/spaces/aletrn/samgis
+
+6. enjoy!
