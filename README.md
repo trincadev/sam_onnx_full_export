@@ -13,7 +13,7 @@ Read the article for thorough explanation of this code.
 
 ## Local execution
 
-1. create and install a virtual environment, dependencies installation
+1. create and install a virtual environment, dependencies installation (this should works also with future dependencies, you can try removing also the version constrains in `requirements_no_versions.txt`)
 
     ```bash
     python -m venv venv
