@@ -13,7 +13,7 @@ def file_exists(filepath: Path) -> bool:
         logging.info(f"file at path {filepath} exists and is a file!")
         return my_file.is_file()
     except FileNotFoundError as fnfe:
-        logging.error("fnfe:{fnfe}")
+        logging.error(f"fnfe:{fnfe}.")
         raise fnfe
 
 
@@ -35,7 +35,9 @@ if __name__ == '__main__':
     # ROOT = Path(__file__).resolve().parent
     # logging.info(f"root:{ROOT}.")
     # os.environ["HF_HOME"] = str(ROOT / "original_models")
-    ROOT = Path(__file__).resolve().parent
+
+    # ROOT = Path(__file__).resolve().parent
+    ROOT = Path("/Users/trincuz/workspace/sam_onnx_full_export")
     models_folder = ROOT / "original_models"
     logging.info(f"models_folder:{models_folder}#")
     # Load SAM model
@@ -45,10 +47,10 @@ if __name__ == '__main__':
     logging.info(f"start download {model_prefix} => {hf_filename_model} to {models_folder} folder...")
     hf_hub_download(repo_id=hf_reponame_model, filename=hf_filename_model, local_dir=models_folder)
     pytorch_model = f"{models_folder}/{hf_filename_model}"
-    logging.info(f"downloaded: {pytorch_model} ...")
-    
+    logging.info(f"downloaded: {pytorch_model} ...")
+
     file_exists(pytorch_model)
-    
+
     sam = sam_model_registry["vit_t"](checkpoint=pytorch_model)
 
     logging.info(f"registered {pytorch_model}...")

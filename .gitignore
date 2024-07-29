@@ -161,4 +161,7 @@ cython_debug/
 *.onnx
 *.pt
 .DS_Store
-teglio_1280x960.jpg
+
+# custom
+tmp/teglio_1280x960.jpg
+tmp/*

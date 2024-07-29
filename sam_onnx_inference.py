@@ -20,11 +20,11 @@ logging.basicConfig(level=logging.INFO)
 
 
 if __name__ == '__main__':
-    from matplotlib import pyplot as plt
     import onnxruntime as ort
     from PIL import Image
     from urllib import request
 
+    from samgis_core.utilities import plot_images
     from helpers import preprocess_image, padding_tensor, get_mask
 
     logging.info("start...")
@@ -65,22 +65,15 @@ if __name__ == '__main__':
     masks, res2, res3 = get_mask(prompt, img_input_size, embeddings)
 
     logging.info(f"found {len(masks)} masks...")
-
+    logging.info(f"masks shape:{masks.shape}...")
     # POSTPROCESS MASK
     mask = masks[0][0]
     mask = (mask > 0).astype('uint8') * 255
+    img_list = [mask]
+    img_list.extend(masks[0])
 
-    logging.info(f"mask shape: {mask.shape}.")
-
-    fig, ax = plt.subplot_mosaic([
-        ['img', 'mask']
-    ], figsize=(15, 10))
-
-    # VISUALIZE MASK
-    img_mask = Image.fromarray(masks[0][0] > 0)
-    logging.info(img_mask.size, img.size, img_original_size)
-    ax["img"].imshow(img)
-    ax["mask"].imshow(img_mask)
-    plt.show()
-
+    titles_list = [f"mask:{n}" for n in range(len(img_list))]
+    fig, ax = plot_images.helper_imshow_output_expected(
+        img_list, titles_list, show=True, close_after=0.01, debug=True
+    )
     logging.info("end!")
