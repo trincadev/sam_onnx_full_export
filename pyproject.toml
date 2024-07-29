@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "sam-onnx-full-export"
+version = "1.0.0"
+description = "Segment Anything full ONNX export"
+authors = ["alessandro trinca tornidor <alessandro@trinca.tornidor.com>"]
+license = "GPL-3.0 license"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+huggingface-hub = "^0.24.3"
+mobile-sam = {git = "https://github.com/ChaoningZhang/MobileSAM.git"}
+python = ">=3.10, <3.12"
+python-dotenv = "^1.0.1"
+onnx = "^1.16.1"
+onnxruntime = "^1.18.1"
+segment-anything = "^1.0"
+torch = "2.2.2"
+torchvision = "0.17.2"
+urllib3 = "^2.2.2"
+matplotlib = "^3.9.1"
+pillow = "^10.4.0"
+samgis-core = "^3.0.6"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

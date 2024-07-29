@@ -1,10 +1,13 @@
 git+https://github.com/ChaoningZhang/MobileSAM.git
 huggingface_hub
+matplotlib
 onnx
 onnxruntime
+pillow
 python-dotenv
+samgis-core
 segment-anything
 timm
 torch
 torchvision
-urllib
+urllib3
